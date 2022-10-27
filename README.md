@@ -1,20 +1,17 @@
-# ${projectName} 👋 {#title}
+# ${answers.projectName} 
+<br>
+<img width=160, height=40 src="https://img.shields.io/badge/license-MIT-important">
+<br>
+<br>
+## Description
 
-${whatLicense()}
+${answers.short-description}
 
-MIT https://img.shields.io/badge/license-MIT-brightgreen
-Apache 2 https://img.shields.io/badge/license-Apache%202-brightgreen
-GPL 3 https://img.shields.io/badge/license-GPL%203-brightgreen
-BSD 3 https://img.shields.io/badge/license-BSD%203-brightgreen
+## Table of Contents 
 
-## Description 📃 {#description}
-
-${short-description}
-
-## Table of Contents 🔍
-
-- [${projectName}](#title)
+- [${projectName}](#projectname)
   - [Description](#description)
+  - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
@@ -23,22 +20,23 @@ ${short-description}
 
 ## Installation 
 
-${Installation}
+${answers.installation}
 
 ## Usage 
 
-${Usage}
+${answers.Usage}
 
-## License 🔑 {#license}
+## License 
 
 This project is licensed under the [${whatLicense()}](LICENSE) license
 
-## Tests 🧪 {#tests}
+## Tests 
 To run test, run the following command:
 ```
-${test}
+${answers.test}
 ```
 
-## Questions ❓ {#questions}
+## Questions 
 
-If you have any questions about the repo, open an issue or contact me directly at ${email}. You can find more of my work at [${username}](${githubURL}).
+If you have any questions about the repo, open an issue or contact me directly at ${answers.email}. 
+You can find more of my work at [${answers.username}](${answers.githubURL}).
