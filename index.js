@@ -8,31 +8,31 @@ const questions = [
         type: 'input',
         name: 'githubUsername',
         message: 'What is your GitHub\'s username?',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'githubURL',
         message: 'What is the link to your GitHub\'s profile',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'email',
         message: 'What is your direct email?',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'projectName',
         message: 'What\'s your projects name?',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'description',
         message: 'Please write a short description of your project?',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'list',
@@ -46,26 +46,26 @@ const questions = [
         name: 'installation',
         message: 'What command should be run to install dependencies?',
         default: 'npm i',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'test',
         message: 'What command should be run to run test?',
         default: 'npm test',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'usage',
         message: 'What does the user need to know about using the repo?',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
     {
         type: 'input',
         name: 'contributing',
         message: 'What does the user need to know about contributing to the repo?',
-        validate: isEmpty(answer),
+        validate: answer => answer ? true : console.log("Please enter a valid answer"),
     },
 ];
 
@@ -74,51 +74,53 @@ function writeToFile(fileName, answers) {
     const encodedLicense = answers.license.split(' ').join('%20');
     const writeReadme = 
     `# ${answers.projectName} 
-    <br>
-    <img width=160, height=40 src="https://img.shields.io/badge/license-${encodedLicense}-important">
-    <br>
-    <br>
-    ## Description
-    
-    ${answers.description}
-    
-    ## Table of Contents 
-    
-    - [${answers.projectName}](#${answers.projectName})
-      - [Description](#description)
-      - [Table of Contents](#table-of-contents)
-      - [Installation](#installation)
-      - [Usage](#usage)
-      - [License](#license)
-      - [Tests](#tests)
-      - [Questions](#questions)
-    
-    ## Installation 
-    \`\`\`
-    ${answers.installation}
-    \`\`\`
-    ## Usage 
-    
-    ${answers.usage}
-    
-    ## License 
-    
-    This project is licensed under the [${answers.license}](LICENSE) license
+<br>
+<img width=160, height=40 src="https://img.shields.io/badge/license-${encodedLicense}-important">
+<br>
+<br>
 
-    ## Contributing
+## Description
 
-    ${answers.contributing}
-    
-    ## Tests 
-    To run test, run the following command:
-    \`\`\`
-    ${answers.test}
-    \`\`\`
-    
-    ## Questions 
-    
-    If you have any questions about the repo, open an issue or contact me directly at ${answers.email}. 
-    You can find more of my work at [${answers.githubUsername}](${answers.githubURL}).
+${answers.description}
+
+## Table of Contents 
+
+- [${answers.projectName}](#${answers.projectName.toLowerCase().split(' ').join('-')})
+    - [Description](#description)
+    - [Table of Contents](#table-of-contents)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [License](#license)
+    - [Contributing](#contributing)
+    - [Tests](#tests)
+    - [Questions](#questions)
+
+## Installation 
+\`\`\`
+${answers.installation}
+\`\`\`
+## Usage 
+
+${answers.usage}
+
+## License 
+
+This project is licensed under the [${answers.license}](LICENSE) license
+
+## Contributing
+
+${answers.contributing}
+
+## Tests 
+To run test, run the following command:
+\`\`\`
+${answers.test}
+\`\`\`
+
+## Questions 
+
+If you have any questions about the repo, open an issue or contact me directly at ${answers.email}. 
+You can find more of my work at [${answers.githubUsername}](${answers.githubURL}).
     `
     fs.writeFile(fileName, writeReadme, (err) =>
     err ? console.log(err) : console.log('Successfully created README.md!'))
@@ -128,7 +130,7 @@ function writeToFile(fileName, answers) {
 function init() {
     inquirer
         .prompt(questions)
-        .then(writeToFile("sampleREADME.md", answers));
+        .then((answers) => writeToFile("sampleREADME.md", answers));
 }
 
 // Function call to initialize app
