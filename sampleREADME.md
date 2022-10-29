@@ -1,16 +1,16 @@
-# awesome project 
+# Awesome Project 
 <br>
-<img width=160, height=40 src="https://img.shields.io/badge/license-Apache%202-important">
+<img width=160, height=40 src="https://img.shields.io/badge/license-GNU%203-important">
 <br>
 <br>
 
 ## Description
 
-it's marverlous
+It's awesome
 
 ## Table of Contents 
 
-- [awesome project](#awesome-project)
+- [Awesome Project](#awesome-project)
     - [Description](#description)
     - [Table of Contents](#table-of-contents)
     - [Installation](#installation)
@@ -26,15 +26,15 @@ npm i
 ```
 ## Usage 
 
-it's easy to use
+It works
 
 ## License 
 
-This project is licensed under the [Apache 2](LICENSE) license
+This project is licensed under the [GNU 3](LICENSE) license
 
 ## Contributing
 
-do it
+You should do it
 
 ## Tests 
 To run test, run the following command:
